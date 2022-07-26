@@ -20,7 +20,7 @@
 <main class="main" id="main">
     <article>
     {{--content section--}}
-        @if($model->alias == "user-login" || $model->alias == "user-register" || $model->alias == "courses" || $model->alias == "blog" || $model->alias == "knowledge"  || $model->alias == "career")
+        @if($model->alias == "user-login" || $model->alias == "user-register" )
 
         @else
             @yield('breadcrumbs')
@@ -39,6 +39,9 @@
 
 @else
     @include('client.layouts.footer')
+    <div class="body-fade" style="display: none">
+        @include('client.layouts.login-popup')
+    </div>
 @endif
 
 @yield('client_scripts')

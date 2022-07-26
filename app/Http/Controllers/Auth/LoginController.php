@@ -45,8 +45,7 @@ class LoginController extends Controller
         if(auth()->user()->isAdmin) {
             return route('admin.pages.list');
         } else {
-            
-            return route('client.page.show', ['alias' => '/']);
+            return route('client.page.show', ['alias' => 'cabinet']);
         }
     }
 

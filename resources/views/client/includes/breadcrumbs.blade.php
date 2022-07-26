@@ -5,7 +5,7 @@
  */
 ?>
 {{--@dd($model)--}}
-@if($model->seoable->parent_page_id && $model->alias != '404')
+@if($model->seoable->parent_page_id && $model->alias != '404' && $model->alias != 'mockups')
             <div class="breadcrumbs main-container">
                 <div class="breadcrumbs__list">
                     <ul class="breadcrumb">

@@ -15,12 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
             params.set(pair[0], pair[1]);
         }
         $.get(this.form.action + '/?' + params.toString(), function (data, status) {
+            $('.pagination').remove();
             $('#category_result')[0].outerHTML = data.view;
             hideLoader();
         })
     })
 
     $(document).on('click', '.pagination__link', function (e) {
+        $('.pagination').remove();
         showLoader();
         e.preventDefault();
         var url = new URL(this.href);
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 function applyFilters(e) {
+    $('.pagination').remove();
     showLoader();
     e.preventDefault();
 

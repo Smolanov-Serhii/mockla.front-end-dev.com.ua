@@ -19,9 +19,13 @@
             </div>
             <nav class="header__nav">
                 <ul class="header__nav-list">
-                    <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/') . '/mockups' }}">Mockups</a></li>
-                    <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/') . '/pricing' }}">Pricing</a></li>
-                    <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/') . '/login' }}">Log In</a></li>
+                    <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/mockups') }}">Mockups</a></li>
+                    <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/pricing') }}">Pricing</a></li>
+                    @auth
+                        <li class="header__nav-item"><a class="header__nav-lnk" href="{{ url('/logout')  }}">Logout</a></li>
+                    @else
+                        <li class="header__nav-item js-try"><div class="header__nav-lnk">Log In</div></li>
+                    @endauth
                 </ul>
             </nav>
             <div class="header__try button-stroke">

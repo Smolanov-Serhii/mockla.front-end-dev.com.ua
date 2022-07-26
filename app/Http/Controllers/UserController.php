@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -96,6 +97,24 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
+            if ($request->has('password') && !empty($request->get('password'))) {
+                $rules = [
+                    'password' => ['required', 'string', 'min:8'],
+                ];
+                $validator = Validator::make($data, $rules);
+
+                if ($validator->fails()) {
+                    return redirect(route('admin.user.edit', ['user' => $user]))
+                        ->withErrors($validator)
+                        ->withInput();
+                }
+                $data = $request->merge([
+                    'password' => Hash::make($request->get('password')),
+                ])->all();
+            } else {
+                unset($data['password']);
+            }
+
             $user->update($data);
 
             return redirect()->route('admin.user.index');

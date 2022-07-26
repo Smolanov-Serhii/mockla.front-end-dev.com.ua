@@ -4,6 +4,7 @@
     "/js/var.js": "/js/var.js",
     "/js/modules.js": "/js/modules.js",
     "/js/modules/form.js": "/js/modules/form.js",
+    "/js/modules/filter.js": "/js/modules/filter.js",
     "/js/menu.js": "/js/menu.js",
     "/js/additions/form.js": "/js/additions/form.js",
     "/js/seo/form.js": "/js/seo/form.js",

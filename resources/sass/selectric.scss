@@ -1,19 +1,18 @@
-$selectric-main-color:      #BFBFBF !default;                                              // Color used in border
+$selectric-main-color:      #C2C6DC !default;                                              // Color used in border
 $selectric-secondary-color: #BBB !default;                                              // Color used in button
-$selectric-text-color:      #B7B7C6 !default;                                              // Color used in label
+$selectric-text-color:      #232639 !default;                                              // Color used in label
 $selectric-bg-color:        #FFFFFF !default;                                           // Background color
 $selectric-btn-bg-color:    transparent !default;                                           // Button background color
-$selectric-height:          54px !default;                                              // Outer height
+$selectric-height:          37px !default;                                              // Outer height
 $selectric-spacing:         10px !default;                                              // Label left padding
-$selectric-border-width:    0px !default;                                               // Outer border width
-$selectric-border-radius:   10px !default;                                               // Border radius
+$selectric-border-width:    1px !default;                                               // Outer border width
+$selectric-border-radius:   40px !default;                                               // Border radius
 $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !default; // Inner height
 $selectric-font-size:       1.8rem !default;                                              // Font size
 
 .selectric-wrapper {
   position: relative;
   cursor: pointer;
-  font-family: 'Futura PT';
 }
 
 .selectric-responsive {
@@ -26,8 +25,8 @@ $selectric-font-size:       1.8rem !default;                                    
   background: $selectric-bg-color;
   position: relative;
   overflow: hidden;
-    min-width: 300px;
-    background: #141D2B;
+    min-width: 275px;
+    background: #FFFFFF;
     @media all and (max-width: 500px) {
         min-width: auto;
     }
@@ -39,12 +38,12 @@ $selectric-font-size:       1.8rem !default;                                    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 14px 50px 14px 32px;
+    padding: 11px 35px 9px 24px;
       font-size: 1.2rem;
       line-height: 120%;
       letter-spacing: 0.075em;
       text-transform: uppercase;
-      color: #FFFFFF;
+      color: #232639;
     height: $selectric-inner-height;
     user-select: none;
     @media all and (max-width: 500px) {
@@ -60,8 +59,7 @@ $selectric-font-size:       1.8rem !default;                                    
     width: $selectric-inner-height;
     height: $selectric-inner-height;
     line-height: $selectric-inner-height;
-    background-color: transparent;
-      background: transparent;
+    background-color: transparent!important;
     color: white;
     text-align: center;
     font: 0/0 a;
@@ -70,15 +68,15 @@ $selectric-font-size:       1.8rem !default;                                    
     &:after {
       content: " ";
       position: absolute;
-      top: -7px;
-      right: 0;
+      top: -6px;
+      right: 4px;
       bottom: 0;
       left: 0;
       margin: auto;
-      border-right: 2px solid white;
-      border-bottom: 2px solid white;
-      width: 12px;
-      height: 12px;
+      border-right: 2px solid #C2C6DC;
+      border-bottom: 2px solid #C2C6DC;
+      width: 7px;
+      height: 7px;
       transform: rotate(45deg);
         background: transparent;
     }
@@ -96,7 +94,6 @@ $selectric-font-size:       1.8rem !default;                                    
 
     &:after {
       border-top-color: darken($selectric-secondary-color, 10%);
-        width: 12px;
     }
   }
 }
@@ -106,12 +103,14 @@ $selectric-font-size:       1.8rem !default;                                    
 
   .selectric {
     border-color: darken($selectric-main-color, 10%);
-      border-radius: 10px 10px 0 0;
+      border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid white;
   }
 
   .selectric-items {
     display: block;
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 20px 20px;
+    border-top: 1px solid white;
   }
 }
 
@@ -186,6 +185,7 @@ $selectric-font-size:       1.8rem !default;                                    
   border: 1px solid darken($selectric-main-color, 10%);
   z-index: -1;
   box-shadow: 0 0 10px -6px;
+  overflow: hidden;
 
   .selectric-scroll {
     height: 100%;
@@ -209,9 +209,12 @@ $selectric-font-size:       1.8rem !default;                                    
 
   li {
     display: block;
-    padding: 10px;
+    padding: 10px 35px 10px 24px;
     color: #666;
     cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 120%;
+    letter-spacing: 0.075em;
     @media all and (max-width: 500px) {
         font-size: 18px;
     }

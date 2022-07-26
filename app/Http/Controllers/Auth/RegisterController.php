@@ -61,7 +61,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
             'role' => ['required', Rule::in([Role::INSTRUCTOR_ROLE_ID, Role::STUDENT_ROLE_ID])],
             'accept' => ['accepted'],
         ]);
@@ -96,8 +96,8 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        $request->request->add(['role'=>11, 'module_id'=> 32, 'accept'=>true]);
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);

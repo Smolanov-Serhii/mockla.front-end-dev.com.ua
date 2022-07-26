@@ -16,6 +16,17 @@
                         required
                     >
                 </div>
+                <div class="form-group">
+                    <label for="key"> @lang('user.password') </label>
+                    <input
+                            name="password"
+                            type="text"
+                            class="form-control"
+                            id="key"
+                            placeholder="@lang('user.password')"
+                            value=""
+                    >
+                </div>
 
                 <div class="form-group">
                     <label for="key"> @lang('user.role') </label>

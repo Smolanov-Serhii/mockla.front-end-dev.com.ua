@@ -54,6 +54,7 @@
 
             @case(0)
             <div class="input-group mb-3 field-image" id="">
+                <div class="move btn">+</div>
                 <img
                         id="image_{{ $attribute->id }}"
                         src="{{ '/uploads/block_template_attributes/' . $attribute->default_value }}"
@@ -100,6 +101,7 @@
 
             @case(1)
             <div class="input-group mb-3 field-input" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -135,6 +137,7 @@
 
             @case(2)
             <div class="input-group mb-3 field-textarea" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -168,6 +171,7 @@
 
             @case(3)
             <div class="input-group mb-3 field-editor" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -203,6 +207,7 @@
 
             @case(5)
             <div class="input-group mb-3 field-image" id="">
+                <div class="move btn">+</div>
                 {{ $attribute->default_value }}
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
@@ -245,6 +250,7 @@
 
             @case(6)
             <div class="input-group mb-3 field-color" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -280,6 +286,7 @@
 
             @case(7)
             <div class="input-group mb-3 selector" id="">
+                <div class="move btn">+</div>
                 <input type="hidden" name="old_attribute[{{ $attribute->id }}][setting_properties]"
                        id="selector_{{ $attribute->id }}">
                 <div class="input-group-prepend">
@@ -319,13 +326,13 @@
                 </div>
             </div>
             <script>
-                {{--                var selector_{{ $attribute->id }} = {!! json_encode($attribute->setting->properties)  !!}--}}
                 var selector_{{ $attribute->id }} = {!! $attribute->setting->properties !!}
             </script>
             @break
 
             @case(8)
             <div class="input-group mb-3 field-widget" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -367,6 +374,7 @@
 
             @case(9)
             <div class="input-group mb-3 field-checkbox" id="">
+                <div class="move btn">+</div>
                 <input
                         name="old_attribute[{{ $attribute->id }}][key]"
                         type="text"
@@ -400,6 +408,53 @@
                 <div class="input-group-append">
                     <button data-id="{{ $attribute->id }}" class="btn btn-danger remove-input" type="button"
                             style="z-index:1">Удалить
+                    </button>
+                </div>
+            </div>
+            @break
+
+            @case(10)
+            <div class="input-group mb-3 field-icon" id="">
+                <div class="move btn">+</div>
+                <img
+                        id="image_{{ $attribute->id }}"
+                        src="{{ '/uploads/block_template_attributes/' . $attribute->default_value }}"
+                        style="width:20%;"
+                        class="img-fluid pad"
+                        alt="Preview">
+                <input
+                        name="old_attribute[{{ $attribute->id }}][key]"
+                        type="text"
+                        class="form-control"
+                        id="key"
+                        placeholder="{{ __('block_template_attributes.key') }}"
+                        value="{{ $attribute->key ?? old('key') }}"
+                >
+                <div class="custom-file">
+                    <input
+                            name="old_attribute[{{ $attribute->id }}][name]"
+                            type="text"
+                            class="form-control"
+                            placeholder="{{ __('block_template_attributes.name') }}"
+                            value="{{ $attribute->name ?? old('name') }}"
+                    >
+                </div>
+                <div class="custom-file">
+                    <input
+                            data-id="{{ $attribute->id }}"
+                            name="old_attribute[{{ $attribute->id }}][default_value]"
+                            type="file"
+                            class="custom-file-input input image-input"
+                    >
+                    <label class="custom-file-label" for="exampleInputFile"> @lang('system.select icon') </label>
+                </div>
+                <div class="input-group-append">
+                    <button
+                            data-id="{{ $attribute->id }}"
+                            class="btn btn-danger remove-input"
+                            type="button"
+                            style="z-index:1"
+                    >Удалить
                     </button>
                 </div>
             </div>

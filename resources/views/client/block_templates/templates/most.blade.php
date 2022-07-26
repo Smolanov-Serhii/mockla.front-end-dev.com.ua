@@ -18,7 +18,8 @@ $contents = $block->mappedByKey();
                 {{ $contents['title']['value'] }}
             </h2>
             <div class="most__subtitle">
-                @foreach($block->iterations as $iteration)
+                @foreach($block->localeIterations as $iteration)
+{{--                    @dd($iteration)--}}
                     @php
                         $properties = $iteration->mappedByKey();
                     @endphp

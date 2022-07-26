@@ -93,3 +93,7 @@
 @section('adminlte_js')
     @include('admin.inc.js')
 @stop
+
+@section('adminlte_css')
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+@endsection

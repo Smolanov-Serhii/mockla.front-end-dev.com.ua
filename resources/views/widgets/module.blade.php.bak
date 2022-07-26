@@ -1,3 +1,0 @@
-<h1>Module widget: {{ $name }}</h1>
-
-@includeIf("widgets.{$name}.list")

@@ -244,7 +244,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Список мокапов ',
-                    'url'  => '/admin/modules/items/list/21',
+                    'url'  => '/admin/modules/items/list/25',
                 ],
                 [
                     'text' => 'Brand',
@@ -365,7 +365,7 @@ return [
         ['header' => 'ПАРАМЕТРЫ'],
         [
             'text'        => 'languages',
-            'url'         => 'admin/languages',
+            'url'         => 'admin/language',
             'icon'        => 'fas fa-language',
 //            'label'       => 3,
             'label_color' => 'success',

@@ -75,7 +75,7 @@ $mapped = $block_template->mappedGroupsById();
     </div>
 </div>
 
-<div class="form-group attribute-fields" id="attribute_fields_{{ $u_id }}" style="width:100%;">
+<div class="form-group attribute-fields iterations" id="attribute_fields_{{ $u_id }}" style="width:100%;">
     @isset($block_template)
         @include('admin.block_template_attributes.includes.attribute_list',['model' => $block_template])
     @endif
