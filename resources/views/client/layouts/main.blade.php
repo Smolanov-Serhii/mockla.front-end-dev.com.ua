@@ -23,7 +23,7 @@
         @if($model->alias == "user-login" || $model->alias == "user-register" )
 
         @else
-            @yield('breadcrumbs')
+{{--            @yield('breadcrumbs')--}}
         @endif
     @yield('content')
     {{--end content section--}}
