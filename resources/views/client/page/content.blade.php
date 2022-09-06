@@ -12,7 +12,7 @@
 
 @section('content')
     @foreach($model->seoable->blocks as $block)
-        @if($block->enabled == 1)
+        @if($block->enabled)
             <?php $view = explode('.', $block->template->path)[0]; ?>
             @includeIf('client.block_templates.templates.'.$view)
         @endif
