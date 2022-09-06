@@ -508,12 +508,6 @@ class BlockTemplateController extends Controller
                             ->create($attribute_data);
                         break;
 
-                    case(10):
-                        $model = $models[$attribute_data['parent_id']]
-                            ->attrs()
-                            ->create($attribute_data);
-                        break;
-
                     default:
                         break;
                 }

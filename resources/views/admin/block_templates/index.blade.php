@@ -101,7 +101,7 @@
 {{--                                    <span class="badge badge-danger">Disable</span>--}}
 {{--                                @endif--}}
                                 @foreach ($template->groups as $group)
-                                    <div>{{ $group->key }}</div>
+                                    <span>{{ $group->key }}</span>
                                 @endforeach
 
                             </td>

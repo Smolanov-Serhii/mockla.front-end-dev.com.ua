@@ -13,7 +13,7 @@ class StorePermissionRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return false;
     }

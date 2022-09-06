@@ -40,12 +40,34 @@ class UserService
         $addition['title'] = $data['name'];
         $profile->addition()->create($addition);
 
+        $attrs = Module::where('name', 'clients')->first()->attrs;
+
+        foreach ($attrs as $attr) {
+            switch ($attr->key) {
+                case 'password':
+                    $value = NULL;
+                    break;
+                case 'name':
+                    $value = $data['name'];
+                    break;
+                case 'email':
+                    $value = $data['email'];
+                    break;
+                default:
+                    $value = NULL;
+                    break;
+            }
+
+            $profile->props()->create([
+                'value' => $value,
+                'module_attribute_id' => $attr->id,
+            ]);
+        }
+
         $user->module_item_id = $profile->id;
         $user->save();
 
         $user->setRole($data['role']);
-
-//        $user->profiles()->sync([$profile->id]);
 
         return $user;
     }

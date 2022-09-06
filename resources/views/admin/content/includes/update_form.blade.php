@@ -1,12 +1,8 @@
 <?php
 /**
- * @var $content BlockContent;
- * @var $block Block;
+ * @var $content \App\Models\Block_contents;
+ * @var $block \App\Models\Block;
  */
-
-use App\Models\Block;
-use App\Models\BlockContent;
-
 ?>
 
 <form
@@ -25,66 +21,21 @@ use App\Models\BlockContent;
         value="{{ class_basename($block) }}_{{ $block->id }}"
     >
 
-    <div class="card card-primary card-outline card-tabs">
-        <div class="card-header p-0 pt-1 border-bottom-0">
-            <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
-                @foreach(\App\Models\Language::where('enabled', true)->get() as $language)
-                    <li class="nav-item">
-                        <a class="nav-link @if($loop->first) active @endif"
-                           id="addition_tab_link"
-                           data-toggle="pill"
-                           href="#content_tab_{{ $language->iso }}"
-                           role="tab"
-                           aria-controls="custom-tabs-two-home"
-                           aria-selected="false"
-                        >
-                            {{ $language->iso }}
-                        </a>
-                    </li>
-                @endforeach
+    @php
+      $block_fillings = $block->fillings();
+    @endphp
+    @foreach($block->template->attrs as $attribute)
+        @include('admin.content.includes.attributes.block_attribute')
+    @endforeach
 
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link"--}}
-{{--                       id="seo_tab_link"--}}
-{{--                       data-toggle="pill"--}}
-{{--                       href="#seo_tab_"--}}
-{{--                       role="tab"--}}
-{{--                       aria-controls="custom-tabs-two-profile"--}}
-{{--                       aria-selected="false"--}}
-{{--                    >--}}
-{{--                        @lang('seo.form_tab')--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-            </ul>
-        </div>
-        <div class="card-body">
-            <div class="tab-content" id="custom-tabs-two-tabContent">
-                @foreach(\App\Models\Language::enabled()->get() as $language)
-                    <div class="tab-pane fade show @if($loop->first) active @endif" id="content_tab_{{ $language->iso }}" role="tabpanel"
-                         aria-labelledby="content_tab_{{ $language->iso }}">
-                        @php
-                            $block_fillings = $block->fillings($language);
-                        @endphp
-
-                        @foreach($block->template->attrs as $attribute)
-                            @include('admin.content.includes.attributes.block_attribute')
-                        @endforeach
-
-                        @foreach($block->template->repeaters as $repeater)
-{{--                            {{ dd($block_fillings['iterations'][$repeater->id]) }}--}}
-                            @include('admin.content.includes.repeater', [
-                                'iterations' => $block_fillings['iterations'][$repeater->id] ?? null,
-                                'content' => $block,
-                                'parent_u_id' => "Block_{$block->id}",
-                                'parent_type' => class_basename($block),
-                            ])
-                        @endforeach
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        <!-- /.card -->
-    </div>
+    @foreach($block->template->repeaters as $repeater)
+                @include('admin.content.includes.repeater', [
+                    'iterations' => $block_fillings['iterations'][$repeater->id] ?? null,
+                    'content' => $block,
+                    'parent_u_id' => "Block_{$block->id}",
+                    'parent_type' => class_basename($block),
+                ])
+    @endforeach
 
 {{--</pre>--}}
 
@@ -135,7 +86,7 @@ use App\Models\BlockContent;
             /*padding: 20px;*/
             /*margin: 0 0 15px 0;*/
             border-style: dashed;
-            border-width: 0;
+            border-width: 0px;
             border-color: #000;
         }
         .move {

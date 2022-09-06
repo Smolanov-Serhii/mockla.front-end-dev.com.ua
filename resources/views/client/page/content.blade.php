@@ -11,8 +11,8 @@
 @endsection
 
 @section('content')
-    @foreach($page->blocks as $block)
-        @if($block->enabled)
+    @foreach($model->seoable->blocks as $block)
+        @if($block->enabled == 1)
             <?php $view = explode('.', $block->template->path)[0]; ?>
             @includeIf('client.block_templates.templates.'.$view)
         @endif

@@ -54,13 +54,7 @@
                                     @if($var->type == 0)
                                         <img src="/uploads/variables/{{ $var->translate->value }}" alt="">
                                     @else
-                                        @foreach($var->translations as $translation)
-                                            @if($translation->lang_id == 2)
-                                                    {{$translation->value}}
-{{--                                                {{ optional($var->translate)->value }}--}}
-                                            @endif
-                                        @endforeach
-
+                                        {{ $var->translate->value }}
                                     @endif
                                 </td>
                                 <td style="white-space: nowrap;">

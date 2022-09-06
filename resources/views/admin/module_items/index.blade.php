@@ -28,9 +28,7 @@ $attributes = $module->attrs->mapWithKeys(function ($attr) {
     <div class="card">
         <div class="card-header border-transparent">
             <h3 class="card-title"> @lang('module_items.list') </h3>
-            @if($module->name == 'newsletter')
-                <a target="_blank" class="btn btn-sm btn-info" style="margin-left: 20px;" href="{{route('admin.letter.export')}}">Экспорт</a>
-            @endif
+
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -50,9 +48,6 @@ $attributes = $module->attrs->mapWithKeys(function ($attr) {
                         <th>Фото</th>
                         @endif
                         <th width="100%">Имя</th>
-                        @if($module->name == 'reviews')
-                            <th> @lang('comment.is_approved') </th>
-                        @endif
                         <th></th>
                     </tr>
                     </thead>
@@ -86,23 +81,6 @@ $attributes = $module->attrs->mapWithKeys(function ($attr) {
 {{--                                    @break--}}
 {{--                                @endswitch--}}
                             </td>
-                            @if($module->name == 'reviews')
-                                <td>
-                                    <div class="custom-control custom-switch"
-                                         style="display: inline-block; width: 30px; margin: 10px; position: absolute">
-                                        <input
-                                                name="enabled"
-                                                type="checkbox"
-                                                class="custom-control-input moderate-comment-switcher"
-                                                data-comment_id="{{ $item->id }}"
-                                                id="moderate_comment_{{ $item->id }}"
-                                                data-url="{{ route('admin.review.moderate', ['review' => $item]) }}"
-                                                @if($item->props()->where('module_attribute_id', $attributes['is_approved'])->first()->value == 1) checked="" @endif
-                                        >
-                                        <label class="custom-control-label" for="moderate_comment_{{ $item->id }}"></label>
-                                    </div>
-                                </td>
-                            @endif
                             <td>
                                 <div class="btn-group">
                                     <a style="margin-right: 3px" href="{{ route('admin.modules.items.update', ['module_item' => $item]) }}"
@@ -133,11 +111,4 @@ $attributes = $module->attrs->mapWithKeys(function ($attr) {
         <!-- /.card-footer -->
     </div>
 @endsection
-
-@if($module->name == 'reviews')
-@section('adminlte_js')
-    @parent('adminlte_js')
-    <script src="{{ asset('/js/comment/list.js') }}"></script>
-@endsection
-@endif
 

@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -96,7 +97,8 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        $request->request->add(['role'=>11, 'module_id'=> 32, 'accept'=>true]);
+        $name = explode('@', $request->email)[0];
+        $request->request->add(['role'=>11, 'module_id'=> 24, 'accept'=>true, 'name'=>$name]);
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
 
@@ -106,7 +108,7 @@ class RegisterController extends Controller
             return $response;
         }
 
-        return redirect('/');
+        return redirect('/cabinet');
 
         return $request->wantsJson()
             ? new JsonResponse(['redirectTo' => $this->redirectPath()], 201)

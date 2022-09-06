@@ -27,15 +27,11 @@ class StoreLanguageRequest extends FormRequest
         return [
             'iso' => [
                 'required',
-                Rule::in(\Languages::lookup('minor')->keys()->toArray()),
+                Rule::in(\Languages::lookup()->keys()->toArray()),
+                Rule::unique('languages', 'iso')
+                    ->ignore( $this->language, 'iso'),
             ],
-            'label' => [
-                'required',
-                Rule::unique('languages', 'label')
-                    ->ignore( $this->language, 'label'),
-            ],
-            'enabled' => 'nullable|boolean',
-            'image' => 'nullable|mimes:jpeg,bmp,png,svg',
+            'enabled' => 'nullable|boolean'
         ];
     }
 }

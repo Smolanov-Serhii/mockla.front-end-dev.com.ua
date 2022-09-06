@@ -2,76 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Language\StoreLanguageRequest;
-use App\Http\Requests\Language\UpdateStatusLanguageRequest;
 use App\Models\Language;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
-use App\Repositories\LanguageRepository;
+use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
-    private LanguageRepository $languageRepository;
-
-    public function __construct(LanguageRepository $languageRepository)
-    {
-        $this->languageRepository = $languageRepository;
-    }
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function index()
     {
-        $languages = Language::all();
+        $model = Language::all();
 
-        return view('admin.language.index', compact('languages'));
+        return view('admin.languages.index', compact('model'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return View
-     */
-    public function create(): View
-    {
-        $language = new Language;
-
-        return view('admin.language.create', compact('language'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreLanguageRequest $request
-     * @return RedirectResponse
-     */
-    public function store(StoreLanguageRequest $request): RedirectResponse
-    {
-        $this->languageRepository->create($request->all());
-
-        return redirect()
-            ->route('admin.language.index');
-    }
-
-    /**
-     * Update status a created resource in storage.
-     *
-     * @param UpdateStatusLanguageRequest $request
-     * @param Language $language
-     * @return JsonResponse
-     */
-    public function updateStatus(UpdateStatusLanguageRequest $request, Language $language): JsonResponse
-    {
-        $language->update($request->all());
-
-        return response()->json([
-            'message' => "{$language->iso} {$language->enabled}"
-        ]);
-    }
-
+//
+//    /**
+//     * Show the form for creating a new resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function create()
+//    {
+//        //
+//    }
+//
+//    /**
+//     * Store a newly created resource in storage.
+//     *
+//     * @param  \Illuminate\Http\Request  $request
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function store(Request $request)
+//    {
+//        //
+//    }
 //
 //    /**
 //     * Display the specified resource.
@@ -90,10 +57,10 @@ class LanguageController extends Controller
 //     * @param  \App\Models\Language  $language
 //     * @return \Illuminate\Http\Response
 //     */
-    public function edit(Language $language)
-    {
-        return view('admin.language.update', compact('language'));
-    }
+//    public function edit(Language $language)
+//    {
+//        //
+//    }
 //
 //    /**
 //     * Update the specified resource in storage.
@@ -102,12 +69,10 @@ class LanguageController extends Controller
 //     * @param  \App\Models\Language  $language
 //     * @return \Illuminate\Http\Response
 //     */
-    public function update(StoreLanguageRequest $request, Language $language)
-    {
-        $this->languageRepository->update($language, $request->all());
-
-        return redirect('admin/language');
-    }
+//    public function update(Request $request, Language $language)
+//    {
+//        //
+//    }
 //
 //    /**
 //     * Remove the specified resource from storage.

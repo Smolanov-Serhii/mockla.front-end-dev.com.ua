@@ -1,3 +1,4 @@
+{{--@dd($items)--}}
 <div class="mockups-page__result" id="category_result">
     @foreach($items as $item)
         @php

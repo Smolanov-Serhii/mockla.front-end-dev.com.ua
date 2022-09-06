@@ -4,9 +4,9 @@
             <div class="breadcrumbs main-container">
                 <div class="breadcrumbs__list">
                     <ul class="breadcrumb">
-                    @if($page->seo->alias == 'main')
+                    @if($model->alias == 'main')
                         <!-- <li>
-                                <span>{{ $page->seo->title }}</span>
+                                <span>{{ $model->title }}</span>
                             </li> -->
                         @else
                             <a href="{{ url('/') }}">

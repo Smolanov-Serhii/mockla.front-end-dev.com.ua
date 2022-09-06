@@ -16,6 +16,7 @@
     <meta property="og:title"              content="{{ $model->title }}" />
     <meta property="og:description"        content="{{ $model->meta_description }}" />
     <meta property="og:image"              content="{{ url('/') . '/uploads/seo/thumbs/' . $model->thumbnail }}" />
+    <script src="{{ asset('js/vu.js')  }} " defer></script>
     <script src="{{ url('/') }}/js/common.min.js?v={{ time() }}" defer></script>
     <script
             src="https://code.jquery.com/jquery-3.6.0.min.js"
