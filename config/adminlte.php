@@ -283,6 +283,24 @@ return [
             ],
 
         ],
+        [
+            'text'        => 'Клиенты',
+//            'url'         => 'admin/modules',
+            'icon'        => '/img/admin/blog.svg',
+//            'label'       => 3,
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Список клиентов ',
+                    'url'  => '/admin/modules/items/list/24',
+                ],
+//                [
+//                    'text' => 'Типы планов',
+//                    'url'  => '/admin/taxonomy/items/list/6',
+//                ],
+            ],
+
+        ],
         ['header' => 'СТРУКТУРА'],
         [
             'text'        => 'Доступы',

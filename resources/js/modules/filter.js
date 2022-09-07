@@ -62,6 +62,48 @@ function applyFilters(e) {
     $.get(this.form.action + '/?' + params.toString(), function (data, status) {
         if (data.status) {
             $('#category_result')[0].outerHTML = data.view;
+            $( "#category_result" ).each(function() {
+                var MacyResult = new Macy({
+                    container: this,
+                    trueOrder: true,
+                    waitForImages: false,
+                    useOwnImageLoader: false,
+                    debug: true,
+                    mobileFirst: true,
+                    columns: 5,
+                    margin: {
+                        y: 40,
+                        x: 20,
+                    },
+                    breakAt: {
+                        1440: 6,
+                        1200: 5,
+                        940: 4,
+                        768: 3,
+                        500: {
+                            margin: {
+                                x: 20,
+                                y: 40,
+                            },
+                            columns: 2
+                        },
+                        350: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 2
+                        },
+                        300: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 1
+                        },
+                    },
+                });
+            });
             hideLoader();
         }
     })
