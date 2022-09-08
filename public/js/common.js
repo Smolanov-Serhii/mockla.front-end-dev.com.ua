@@ -21477,6 +21477,12 @@ $(document ).ready(function() {
         });
     };
 
+    if ($(".header__nav-account").length){
+        $(".header__nav-account").click( function(e) {
+            $('.header__nav-account-all').toggleClass('active');
+        });
+    };
+
     if ($(".selectrik").length){
         $('select.selectrik').selectric();
     };
@@ -21610,6 +21616,51 @@ $(document ).ready(function() {
                 container: this,
                 trueOrder: true,
                 waitForImages: false,
+                useOwnImageLoader: false,
+                debug: true,
+                mobileFirst: true,
+                columns: 5,
+                margin: {
+                    y: 40,
+                    x: 20,
+                },
+                breakAt: {
+                    1440: 6,
+                    1200: 5,
+                    940: 4,
+                    768: 3,
+                    500: {
+                        margin: {
+                            x: 20,
+                            y: 40,
+                        },
+                        columns: 2
+                    },
+                    350: {
+                        margin: {
+                            x: 10,
+                            y: 40,
+                        },
+                        columns: 2
+                    },
+                    300: {
+                        margin: {
+                            x: 10,
+                            y: 40,
+                        },
+                        columns: 1
+                    },
+                },
+            });
+        });
+
+    }
+    if ($('#category_drafts').length){
+        $( "#category_drafts" ).each(function() {
+            var Macydrafts = new Macy({
+                container: this,
+                trueOrder: true,
+                waitForImages: true,
                 useOwnImageLoader: false,
                 debug: true,
                 mobileFirst: true,

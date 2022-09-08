@@ -43,14 +43,22 @@
                 </svg>
                 My Favorites
             </div>
-            <example-component token="{{ csrf_token() }}" text="Uploads image"></example-component>
+{{--            <example-component token="{{ csrf_token() }}" text="Uploads image"></example-component>--}}
         </aside>
         <div class="cabinet__main">
             <div class="cabinet__main-item tabs-content-item active">
                 @includeIf('client.block_templates.includes.category_result')
             </div>
             <div class="cabinet__main-item tabs-content-item">
-2
+                <div class="mockups-page__result" id="category_result">
+                    @foreach(Auth::user()->images as $image)
+                        <div class="mockups-page__result-item">
+                            <div  class="mockups-page__result-img">
+                                <img width="100" src="{{asset('uploads/'.$image->image)}}" alt="">
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="cabinet__main-item tabs-content-item cabinet__main-personal">
                 <div class="cabinet__main-payment">
@@ -123,10 +131,5 @@
 4
             </div>
         </div>
-
-
-        @foreach(Auth::user()->images as $image)
-            <img width="100" src="{{asset('uploads/'.$image->image)}}" alt="">
-        @endforeach
     </div>
 </section>

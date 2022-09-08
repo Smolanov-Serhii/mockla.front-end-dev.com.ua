@@ -3365,6 +3365,102 @@ body {
   margin: 0 0.78125vw;
 }
 
+.header__nav-account {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  margin-left: 169px;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding-left: 0;
+  position: relative;
+}
+
+.header__nav-account-all {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  padding: 16px 31px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 38px rgba(0, 0, 0, 0.11);
+  border-radius: 15px;
+  z-index: 20;
+  min-width: 259px;
+  opacity: 0;
+  pointer-events: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.header__nav-account-all.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header__nav-account-all .plan {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed #C2C6DC;
+  margin-bottom: 14px;
+}
+
+.header__nav-account-all .plan-name {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #1972A4;
+}
+
+.header__nav-account-all .plan-date {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: #C2C6DC;
+}
+
+.header__nav-account-all a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #232639;
+  margin-bottom: 16px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  transition: 0.3s;
+}
+
+.header__nav-account-all a:hover {
+  color: #1972A4;
+}
+
+.header__nav-account-all a:last-child {
+  padding-top: 14px;
+  border-top: 1px dashed #C2C6DC;
+  margin-bottom: 0;
+}
+
+.header__nav-account-all a svg {
+  margin-right: 10px;
+}
+
+.header__nav-account .name {
+  margin-right: 15px;
+  display: inline-block;
+  margin-left: 7px;
+}
+
 .header__nav-list {
   display: -ms-flexbox;
   display: flex;
@@ -3379,7 +3475,8 @@ body {
   padding-left: 0;
 }
 
-.header__nav-lnk {
+.header__nav-lnk,
+.header__nav .name {
   font-weight: 500;
   font-size: 0.8333333333vw;
   line-height: 118%;
@@ -4345,6 +4442,16 @@ body {
 
 .mockups-page__content {
   width: calc(100% - 308px);
+}
+
+.mockups-page__result-fav {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.mockups-page__result-item {
+  position: relative;
 }
 
 .mockups-page__result-title {
