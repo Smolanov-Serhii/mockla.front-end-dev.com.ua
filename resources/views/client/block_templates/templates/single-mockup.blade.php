@@ -22,7 +22,7 @@ $items = $module_item->blocks;
             <div class="single-mockup__aside">
                 <example-component mockup="{{$module_item->id}}" @class('single-mockup__button') text="{{ 'Upload image' }}"></example-component>
                 @if(Auth::check())
-                    <div class="mockups-page__prews">
+                    <div class="mockups-page__prews perfect-scrollbar" id="loaded_images">
                     @foreach(Auth::user()->images as $image)
                             <div class="mockups-page__prew active">
                                 <img src="{{asset('uploads/'.$image->image)}}">

@@ -39,6 +39,7 @@ mix.combine([
     'resources/js/jquery.selectric.js',
     // 'resources/js/fresco.min.js',
     'resources/js/jquery.nested.js',
+    'resources/js/perfect-scrollbar.jquery.js',
     'resources/js/scripts.js',
 ], 'public/js/common.js');
 

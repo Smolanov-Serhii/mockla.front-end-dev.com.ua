@@ -291,5 +291,54 @@ $(document ).ready(function() {
 
         }
     }
-    DownloadsResult()
+    DownloadsResult();
+    function LoadedImages(){
+        if ($('#loaded_images').length){
+            $( "#loaded_images" ).each(function() {
+                var MacyDownloads = new Macy({
+                    container: this,
+                    trueOrder: false,
+                    waitForImages: false,
+                    useOwnImageLoader: false,
+                    debug: true,
+                    mobileFirst: false,
+                    columns: 2,
+                    margin: {
+                        y: 20,
+                        x: 20,
+                    },
+                    breakAt: {
+                        1440: 2,
+                        1200: 2,
+                        940: 2,
+                        768: 2,
+                        500: {
+                            margin: {
+                                x: 20,
+                                y: 20,
+                            },
+                            columns: 2
+                        },
+                        350: {
+                            margin: {
+                                x: 10,
+                                y: 10,
+                            },
+                            columns: 2
+                        },
+                        300: {
+                            margin: {
+                                x: 10,
+                                y: 10,
+                            },
+                            columns: 1
+                        },
+                    },
+                });
+            });
+
+        }
+    }
+    LoadedImages();
+    $('.perfect-scrollbar').perfectScrollbar();
 });
