@@ -37,7 +37,7 @@ mix.combine([
     'resources/js/swiper-bundle.js',
     'resources/js/aos.js',
     'resources/js/jquery.selectric.js',
-    // 'resources/js/fresco.min.js',
+    'resources/js/fresco.min.js',
     'resources/js/jquery.nested.js',
     'resources/js/perfect-scrollbar.jquery.js',
     'resources/js/scripts.js',

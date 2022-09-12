@@ -3,6 +3,7 @@
 @import "_default.scss";
 @import "_variables.scss";
 @import "aos.scss";
+@import "fresco.scss";
 @import "perfect-scrollbar.scss";
 @import "preloader.scss";
 @import "selectric.scss";
@@ -1637,8 +1638,16 @@ body{
       &.active{
         display: flex;
       }
-      .mockups-page__result{
-        width: 100%;
+      .mockups-page{
+        &__result{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        &__prew{
+          height: 200px;
+          cursor: pointer;
+        }
       }
       .pagination{
         width: 100%;

@@ -50,7 +50,7 @@
                 <div class="mockups-page__result" id="downloads_result">
                     @foreach(Auth::user()->downloads as $image)
                         <div class="mockups-page__prew active">
-                            <img src="{{asset('uploads/'.$image->out_name())}}">
+                            <img class="fresco" src="{{asset('uploads/'.$image->out_name())}}" href="{{asset('uploads/'.$image->out_name())}}">
                             <div class="delete" data-image-id="{{$image->id}}">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="15" cy="15" r="15" fill="#1972A4"></circle>
@@ -66,7 +66,7 @@
                 <div class="mockups-page__result" id="category_drafts">
                     @foreach(Auth::user()->images as $image)
                         <div class="mockups-page__prew active">
-                            <img width="100" src="{{asset('uploads/'.$image->image)}}" alt="">
+                            <img class="fresco" width="100" src="{{asset('uploads/'.$image->image)}}" alt=""  href="{{asset('uploads/'.$image->image)}}">
                             <div class="delete" data-image-id="{{$image->id}}">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="15" cy="15" r="15" fill="#1972A4"></circle>
