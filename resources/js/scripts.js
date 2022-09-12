@@ -29,6 +29,9 @@ $(document ).ready(function() {
             $(".tabs-elements .tabs-content-item").hide().eq($(this).index()) .css("display", "flex")
                 .hide()
                 .fadeIn();
+            CategoryResult();
+            CategoryDrafts();
+            DownloadsResult()
         }).eq(0).addClass("active");
         $(".tabs-elements .tabs-content-item").eq(0).addClass("active");
     }
@@ -145,95 +148,148 @@ $(document ).ready(function() {
             });
         });
     }
-
-    if ($('#category_result').length){
-        $( "#category_result" ).each(function() {
-            var MacyResult = new Macy({
-                container: this,
-                trueOrder: true,
-                waitForImages: false,
-                useOwnImageLoader: false,
-                debug: true,
-                mobileFirst: true,
-                columns: 5,
-                margin: {
-                    y: 40,
-                    x: 20,
-                },
-                breakAt: {
-                    1440: 6,
-                    1200: 5,
-                    940: 4,
-                    768: 3,
-                    500: {
-                        margin: {
-                            x: 20,
-                            y: 40,
-                        },
-                        columns: 2
+    function CategoryResult(){
+        if ($('#category_result').length){
+            $( "#category_result" ).each(function() {
+                var MacyResult = new Macy({
+                    container: this,
+                    trueOrder: true,
+                    waitForImages: false,
+                    useOwnImageLoader: false,
+                    debug: true,
+                    mobileFirst: true,
+                    columns: 5,
+                    margin: {
+                        y: 40,
+                        x: 20,
                     },
-                    350: {
-                        margin: {
-                            x: 10,
-                            y: 40,
+                    breakAt: {
+                        1440: 6,
+                        1200: 5,
+                        940: 4,
+                        768: 3,
+                        500: {
+                            margin: {
+                                x: 20,
+                                y: 40,
+                            },
+                            columns: 2
                         },
-                        columns: 2
-                    },
-                    300: {
-                        margin: {
-                            x: 10,
-                            y: 40,
+                        350: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 2
                         },
-                        columns: 1
+                        300: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 1
+                        },
                     },
-                },
+                });
             });
-        });
 
+        }
     }
-    if ($('#category_drafts').length){
-        $( "#category_drafts" ).each(function() {
-            var Macydrafts = new Macy({
-                container: this,
-                trueOrder: true,
-                waitForImages: true,
-                useOwnImageLoader: false,
-                debug: true,
-                mobileFirst: true,
-                columns: 5,
-                margin: {
-                    y: 40,
-                    x: 20,
-                },
-                breakAt: {
-                    1440: 6,
-                    1200: 5,
-                    940: 4,
-                    768: 3,
-                    500: {
-                        margin: {
-                            x: 20,
-                            y: 40,
-                        },
-                        columns: 2
+    CategoryResult();
+    function CategoryDrafts(){
+        if ($('#category_drafts').length){
+            $( "#category_drafts" ).each(function() {
+                var Macydrafts = new Macy({
+                    container: this,
+                    trueOrder: true,
+                    waitForImages: true,
+                    useOwnImageLoader: false,
+                    debug: true,
+                    mobileFirst: true,
+                    columns: 5,
+                    margin: {
+                        y: 40,
+                        x: 20,
                     },
-                    350: {
-                        margin: {
-                            x: 10,
-                            y: 40,
+                    breakAt: {
+                        1440: 6,
+                        1200: 5,
+                        940: 4,
+                        768: 3,
+                        500: {
+                            margin: {
+                                x: 20,
+                                y: 40,
+                            },
+                            columns: 2
                         },
-                        columns: 2
-                    },
-                    300: {
-                        margin: {
-                            x: 10,
-                            y: 40,
+                        350: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 2
                         },
-                        columns: 1
+                        300: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 1
+                        },
                     },
-                },
+                });
             });
-        });
 
+        }
     }
+    CategoryDrafts();
+    function DownloadsResult(){
+        if ($('#downloads_result').length){
+            $( "#downloads_result" ).each(function() {
+                var MacyDownloads = new Macy({
+                    container: this,
+                    trueOrder: true,
+                    waitForImages: true,
+                    useOwnImageLoader: false,
+                    debug: true,
+                    mobileFirst: true,
+                    columns: 5,
+                    margin: {
+                        y: 40,
+                        x: 20,
+                    },
+                    breakAt: {
+                        1440: 6,
+                        1200: 5,
+                        940: 4,
+                        768: 3,
+                        500: {
+                            margin: {
+                                x: 20,
+                                y: 40,
+                            },
+                            columns: 2
+                        },
+                        350: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 2
+                        },
+                        300: {
+                            margin: {
+                                x: 10,
+                                y: 40,
+                            },
+                            columns: 1
+                        },
+                    },
+                });
+            });
+
+        }
+    }
+    DownloadsResult()
 });
